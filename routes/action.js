@@ -10,4 +10,20 @@ actionRouter.get("/", (req, res) => {
   });
 });
 
+actionRouter.get("/:movieTitle", (req, res) => {
+  const { movieTitle } = req.params;
+  const movie = action.find(
+    (m) =>
+      m.title.toLowerCase().replace(/\s+/g, "-") === movieTitle.toLowerCase()
+  );
+  if (movie) {
+    res.render("pages/movieDetail", {
+      title: movie.title,
+      movie,
+    });
+  } else {
+    res.status(404).send("No more action for you!");
+  }
+});
+
 export default actionRouter;

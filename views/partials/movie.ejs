@@ -1,23 +1,17 @@
-<% if (movies) { %>
+<% if (movie) { %>
 <div class="movie-container">
-  <% movies.forEach(movie => { %>
   <div class="movie">
     <div class="image-container">
-      <img class="cover" src="<%= movie.cover %>" alt="" />
+      <img class="cover" src="../<%= movie.cover %>" alt="" />
     </div>
     <div class="info-container">
       <h3 class="movie-title"><%= movie.title %></h3>
       <p class="year">(<%= movie.year %>)</p>
       <p class="genre">Genre: <%= movie.genre %></p>
       <p class="director">Directed by: <%= movie.director %></p>
-      <a
-        href="/<%= movie.genre.toLowerCase() %>/<%= movie.title.toLowerCase().replace(/\s+/g, '-') %>"
-        class="button"
-        >Read more</a
-      >
+      <p class="description"><%= movie.description %></p>
     </div>
   </div>
-  <% }) %>
 </div>
 <% } else { %>
 <p>Sorry buddy, there seems to be glitch in the Matrix</p>
