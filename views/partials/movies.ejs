@@ -1,0 +1,19 @@
+<% if (movies) { %>
+<div class="movie-container">
+  <% movies.forEach(movie => { %>
+  <div class="movie">
+    <div class="image-container">
+      <img class="cover" src="<%= movie.cover %>" alt="" />
+    </div>
+    <div class="info-container">
+      <h3 class="movie-title"><%= movie.title %></h3>
+      <p class="year">(<%= movie.year %>)</p>
+      <p class="genre">Genre: <%= movie.genre %></p>
+      <p class="director">Directed by: <%= movie.director %></p>
+    </div>
+  </div>
+  <% }) %>
+</div>
+<% } else { %>
+<p>Sorry buddy, there seems to be glitch in the Matrix</p>
+<% } %>
